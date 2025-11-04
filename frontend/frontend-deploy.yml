@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genesis
+  labels: 
+   app: grade-front 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grade-front
+  template:
+    metadata:
+     labels:
+       app: grade-front
+    spec:
+      containers:
+      - name: cont1
+        image: cronosm4m/frontend
