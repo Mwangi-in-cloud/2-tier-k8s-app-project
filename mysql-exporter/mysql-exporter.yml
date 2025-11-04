@@ -1,0 +1,18 @@
+mysql:
+  db: ""
+  host: "mysql.database-monitoring.svc.cluter.local"
+  user: "mysqluser"
+  port: 3306  
+  # secret only containing the password
+  existingPasswordSecret:
+    name: "mysql-secret"
+    key: "MYSQL_PASSWORD"
+serviceMonitor:
+  # enabled should be set to true to enable prometheus-operator discovery of this service
+  enabled: true
+  # interval is the interval at which metrics should be scraped
+  interval: 30s
+  # scrapeTimeout is the timeout after which the scrape is ended
+  # scrapeTimeout: 10s
+  additionalLabels: 
+     release: prometheus
